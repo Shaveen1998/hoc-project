@@ -1,23 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
+import MapandFilter from './pages/MapandFilter';
+import Form from './pages/Form';
+import UserContext from './context/userContext';
+import { useState } from 'react';
 
 function App() {
+
+  const [name, setName] = useState('shaveen ')
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <h1>React Learn</h1>
+      <UserContext value={{name, setName}}>
+      <MapandFilter/>
+         <Form />
+      </UserContext>
+       
+         
     </div>
   );
 }
