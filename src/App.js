@@ -1,20 +1,18 @@
 import './App.css';
 import MapandFilter from './pages/MapandFilter';
 import Form from './pages/Form';
-import UserContext from './context/userContext';
-import { useState } from 'react';
+import User from './components/User';
+import withLoader from './components/withLoader';
+import Parent from './pages/Parent';
 
 function App() {
 
-  const [name, setName] = useState('shaveen ')
+  const UserHoc = withLoader(User)
+  
   return (
     <div className="App">
         <h1>React Learn</h1>
-      <UserContext value={{name, setName}}>
-      <MapandFilter/>
-         <Form />
-      </UserContext>
-       
+      <Parent /> 
          
     </div>
   );

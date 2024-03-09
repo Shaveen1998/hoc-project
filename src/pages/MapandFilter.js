@@ -3,7 +3,7 @@ import UserContext from '../context/userContext';
 
 function MapandFilter() {
     const [users, setUsers] = useState([]);
-    const {name, setName} = useContext(UserContext)
+    const {name} = useContext(UserContext)
 
     useEffect(() => {
 
