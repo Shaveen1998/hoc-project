@@ -1,21 +1,23 @@
-import './App.css';
-import MapandFilter from './pages/MapandFilter';
-import Form from './pages/Form';
-import User from './components/User';
-import withLoader from './components/withLoader';
-import Parent from './pages/Parent';
+import { useEffect } from "react";
+import "./App.css";
+import { useState } from "react";
+const API = "https://randomuser.me/api/?results=20";
 
 function App() {
+  const [people, setPeople] = useState([]);
 
-  const UserHoc = withLoader(User)
-  
-  return (
-    <div className="App">
-        <h1>React Learn</h1>
-      <Parent /> 
-         
-    </div>
-  );
+  useEffect(() => {
+    const fetchPeople = async () => {
+      const res = await fetch(API);
+      const data = await res.json();
+      setPeople(data.results);
+      console.log(people);
+    };
+
+    fetchPeople();
+  }, []);
+
+  return <div className="App"></div>;
 }
 
 export default App;
